@@ -33,11 +33,11 @@ public enum ServiceCharges {
         this.percentage = percentage;
     }
 
-    public ArrayList<FoodType> getTriggers() {
+    public ArrayList<FoodType> getFoodTypes() {
         return collectTypes;
     }
 
-    public void setTriggers(ArrayList<FoodType> foodtypes) {
+    public void setFoodTypes(ArrayList<FoodType> foodtypes) {
         collectTypes = foodtypes;
     }
     
@@ -54,8 +54,8 @@ public enum ServiceCharges {
     }
     
     private static boolean checkChargeOnItem(Items item, ServiceCharges charge) {
-        for (FoodType trigger : charge.getTriggers()) {
-            if(trigger.triggeredBy(item.getProperties())) {
+        for (FoodType foodType : charge.getFoodTypes()) {
+            if(foodType.triggeredBy(item.getProperties())) {
                 return true;
             }
         }
