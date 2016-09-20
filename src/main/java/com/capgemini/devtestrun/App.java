@@ -14,25 +14,32 @@ import com.capgemini.devtestrun.items.Order;
 public class App 
 {
 	public static void main( String[] args ){
-		if(args.length != 0){
-			System.out.println("Menu:");
-			System.out.println("1.Cola: 50p");
-			System.out.println("2.Coffee: £1");
-			System.out.println("3.Cheese Sandwich: £2");
-			System.out.println("4.Steak Sandwich: £4.50");
+		if(args.length == 0){
+			System.out.println("Welcome to Cafe X");
+			System.out.println("Can we take your order: ");
+			System.out.println("***************************");
+			System.out.println("COLA for cola (£0.50)");
+			System.out.println("COFFEE for coffee(£1.00)");
+			System.out.println("CHEESESW for Cheese Swandwich (£2.00)");
+			System.out.println("STEAKSW for Steak Sandwich (£4.50)");
+			System.out.println("EXIT for exit");
+			System.out.println("***************************");
 			Scanner in = new Scanner(System.in);
 			System.out.print("Which item would you like?");
 			List<String>entries = new ArrayList<String>();;
 			String input = in.nextLine();
-			while(!input.equalsIgnoreCase("x") || !input.contains("x")){
-				boolean exit = false;
-				entries.add(input);
-				System.out.println("Item processed");
-				System.out.println("Would you like to add another item? Press x if you wish to exit now");
-				if(exit){
-					System.out.println("Exiting system");
+			boolean exit = false;
+			while(!exit){
+				if(!input.equalsIgnoreCase("x") || !input.contains("x")){
+
+					entries.add(input);
+					System.out.println("Item processed");
+					System.out.println("Would you like to add another item? Press x if you wish to exit now");
+					input = in.nextLine();
+				} else {
+					exit = true;
 				}
-			} 
+			}
 			if(input.equalsIgnoreCase("x")){
 				System.out.println("Processing items added");
 				if(!entries.isEmpty()){
@@ -67,7 +74,7 @@ public class App
 			System.out.println("Items found, calculating total charge");
 			double total = order.printTotalCostOfOrder();
 		}
-		
+
 	}
 
 	static Order addItem(Order order, Items item) {
