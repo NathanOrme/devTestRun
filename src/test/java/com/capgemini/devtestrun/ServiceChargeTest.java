@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.capgemini.devtestrun.items.Order;
+import com.capgemini.devtestrun.items.service.ServiceCharges;
 
 
 public class ServiceChargeTest {

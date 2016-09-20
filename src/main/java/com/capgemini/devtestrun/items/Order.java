@@ -2,9 +2,17 @@ package com.capgemini.devtestrun.items;
 
 import java.util.ArrayList;
 
+import com.capgemini.devtestrun.items.service.ServiceCharges;
+
+
 public class Order {
 	private ArrayList<OrderItems> orders = new ArrayList<OrderItems>();
 	private double totalCost = 0;
+	private ServiceCharges serviceCharge = ServiceCharges.FREE;
+
+    public void setServiceCharge(ServiceCharges serviceCharge) {
+        this.serviceCharge = serviceCharge;
+    }
 
 	public void addItem(Items item) {
 		boolean found = false;
