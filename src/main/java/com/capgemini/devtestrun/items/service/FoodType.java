@@ -6,7 +6,7 @@ public enum FoodType {
 
 	FREE("cold", "food"),
     COLD_FOOD("cold", "food"),
-    WARM_FOOD("hot", "food");
+    HOT_FOOD("hot", "food");
     
     private ArrayList< String> types = new ArrayList<String>();
     

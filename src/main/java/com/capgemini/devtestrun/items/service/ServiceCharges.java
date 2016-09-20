@@ -7,7 +7,7 @@ import com.capgemini.devtestrun.items.Items;
 public enum ServiceCharges {
     FREE(0, 0, FoodType.FREE),
     TEN_PERCENT(10, 0, FoodType.COLD_FOOD),
-    TWENTY_PERCENT(20, 20, FoodType.WARM_FOOD);
+    TWENTY_PERCENT(20, 20, FoodType.HOT_FOOD);
     
     private int percentage;
     private int limit;
