@@ -72,7 +72,7 @@ public class App
 			System.out.println("No items added, no charge");
 		} else {
 			System.out.println("Items found, calculating total charge");
-			double total = order.printTotalCostOfOrder();
+			order.printTotalCostOfOrder();
 		}
 
 	}
