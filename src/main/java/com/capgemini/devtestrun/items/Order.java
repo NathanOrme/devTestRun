@@ -24,9 +24,9 @@ public class Order {
 
 	public double printTotalCostOfOrder() {
 		if(totalOrderPrice() != 0){
-			totalCost = totalOrderPrice();
+			totalCost = Math.round(totalCost * 100.00) / 100.00;
 		} else {
-			totalCost = 0;
+			totalCost = totalOrderPrice();
 		}
 		System.out.println("Total Order Cost: £" + totalCost);
 		return totalCost;

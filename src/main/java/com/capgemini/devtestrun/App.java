@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.capgemini.devtestrun.items.Items;
 import com.capgemini.devtestrun.items.Order;
 
 /**
@@ -52,6 +53,35 @@ public class App
 
 	private static void processOrder(List<String> arguments) {
 		Order order = new Order();
+		for(String a : arguments){
+			if(Items.getById(a) != null){
+				Items item = Items.getById(a);
+				order = addItem(order,item);
+			} else {
+				System.out.println("No item was found for following entry: " + a);
+			}
+		}
+		if(orderIsEmpty(order)){
+			System.out.println("No items added, no charge");
+		} else {
+			System.out.println("Items found, calculating total charge");
+			double total = order.printTotalCostOfOrder();
+		}
 		
+	}
+
+	static Order addItem(Order order, Items item) {
+		Order obj = new Order();
+		obj = order;
+		obj.addItem(item);
+		return obj;
+	}
+
+	private static boolean orderIsEmpty(Order order) {
+		Order test = new Order();
+		if(test.equals(order)){
+			return true;
+		}
+		return false;
 	}
 }

@@ -1,38 +1,26 @@
 package com.capgemini.devtestrun;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import com.capgemini.devtestrun.items.Items;
+import com.capgemini.devtestrun.items.Order;
+
+
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest {
+	
+	@Test
+    public void DoubleColaOrder() {
+		Order o = new Order();
+        Items cola = Items.COLA;
+        o = App.addItem(o,cola);
+        o = App.addItem(o,cola);
+        assertEquals(Items.COLA.getPrice()*2, o.printTotalCostOfOrder(), 0.1);
     }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+    
 }
