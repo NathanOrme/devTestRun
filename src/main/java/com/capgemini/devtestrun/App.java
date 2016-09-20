@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.capgemini.devtestrun.items.Order;
+
 /**
  * Hello world!
  *
@@ -32,11 +34,24 @@ public class App
 			} 
 			if(input.equalsIgnoreCase("x")){
 				System.out.println("Processing items added");
+				if(!entries.isEmpty()){
+					processOrder(entries);
+				}
 				System.out.println("Exiting system");
 				in.close();
 			}
 		} else {
 			System.out.println("Arguments passed through, test run activated");
+			List<String> arguments = new ArrayList<String>();
+			for(String a : args){
+				arguments.add(a);
+			}
+			processOrder(arguments);
 		}
+	}
+
+	private static void processOrder(List<String> arguments) {
+		Order order = new Order();
+		
 	}
 }
